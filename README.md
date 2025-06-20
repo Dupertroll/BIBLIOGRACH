@@ -12,10 +12,10 @@
 
 ## 📌 Objetivos del Proyecto
 
+- Proveer herramientas para una gestión de usuarios eficiente por parte de los administradores.
 - Facilitar la **gestión del inventario** de libros (agregar, eliminar, editar).
-- Permitir a los estudiantes explorar el catálogo fácilmente.
+- Permitir a los estudiantes explorar el catálogo virtual fácilmente.
 - Optimizar el **proceso de préstamo y devolución** de libros.
-- Proveer herramientas para una gestión eficiente por parte de los administradores.
 
 ---
 
@@ -40,7 +40,7 @@
 ### Funcionalidades
 
 - Inventario organizado con los siguientes datos:
-  - `Nombre, Autor, Cantidad, Imagen, Año, Editorial, Género, Sistema Dewey, Ubicación física (estantería)`
+  - `Nombre, Autor, Cantidad, Imagen, Año, Editorial, Género, Ubicación física (estantería)`
 - CRUD completo para administradores (crear, leer, actualizar y eliminar libros del catálogo).
 - Visualización del catálogo por parte de los usuarios.
 - Modificación de metadatos técnicos.
@@ -56,7 +56,7 @@
 - Ver detalles de cada libro.
 - Buscar libros por distintos filtros.
 - Consultar disponibilidad.
-- Ver sistema de etiquetas (género, editorial, Dewey).
+- Ver sistema de etiquetas (género, editorial).
 - Visualizar en qué estantería se encuentra físicamente cada libro.
 
 ---
@@ -65,9 +65,8 @@
 
 ### Funcionalidades del usuario
 
-- Solicitar préstamo de un libro indicando curso.
+- Solicitar préstamo de un libro.
 - Ver sus préstamos activos.
-- Confirmar devolución del libro.
 
 ### Funcionalidades del administrador
 
@@ -78,8 +77,8 @@
 - Editar registro de préstamos.
 - Eliminar o aceptar solicitudes.
 - Visualizar todos los préstamos activos.
-- CRUD de inventario de libros.
 - CRUD del catálogo de libros.
+- CRUD de inventario de libros.
 - CRUD de estudiantes, profesores y otros administradores.
 
 ---
