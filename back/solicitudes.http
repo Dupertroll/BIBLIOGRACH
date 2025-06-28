@@ -1,0 +1,10 @@
+### User register
+POST http://localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "prueba",
+  "documento": "12345",
+  "correo": "prueba@gmail.com",
+  "contrasena": "1234567"
+}
