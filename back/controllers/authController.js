@@ -1,17 +1,17 @@
 import jwt from "jsonwebtoken";
 import {
-  findUserByUsername,
+  existsUserByEmail,
   verifyPassword,
   registerUser,
 } from "../services/authService.js";
 import { JWT_SECRET } from "../config.js";
 
 export const login = async (req, res) => {
-  const { username, password } = req.body;
+  const { correo, password } = req.body;
 
-  const user = await findUserByUsername(username);
+  const user = await existsUserByEmail(correo);
   if (!user) {
-    return res.status(401).json({ error: "Usuario no encontrado" });
+    return res.status(401).json({ error: "Correo no encontrado" });
   }
 
   const valid = await verifyPassword(password, user.password);

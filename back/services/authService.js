@@ -1,17 +1,41 @@
-import fs from "fs/promises";
-import path from "path";
 import bcrypt from "bcrypt";
 import { pool } from "../db.js";
 
-const filePath = path.resolve("data", "users.json");
+// Error personalizado para indicar conflicto, p. ej. usuario ya existente
+export class ConflictError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "ConflictError";
+    this.statusCode = 409;
+  }
+}
 
-export const findUserByUsername = async (username) => {
-  const users = JSON.parse(await fs.readFile(filePath, "utf-8"));
-  return users.find((user) => user.username === username);
+// Hashea una contraseña en texto plano usando bcrypt
+export const hashPassword = async (plainPassword) => {
+  return await bcrypt.hash(plainPassword, 10);
 };
 
+// Verifica si la contraseña en texto plano coincide con la contraseña hasheada
 export const verifyPassword = async (inputPassword, hashedPassword) => {
   return await bcrypt.compare(inputPassword, hashedPassword);
+};
+
+// Verifica si existe un usuario con un correo dado
+export const existsUserByEmail = async (correo) => {
+  const result = await pool.query(
+    "SELECT id FROM usuarios WHERE correo = $1",
+    [correo]
+  );
+  return result.rows.length > 0;
+};
+
+// Verifica si existe un usuario con un documento dado
+export const existsUserByDocumento = async (documento) => {
+  const result = await pool.query(
+    "SELECT id FROM usuarios WHERE documento = $1",
+    [documento]
+  );
+  return result.rows.length > 0;
 };
 
 // Registra un nuevo usuario
@@ -22,16 +46,14 @@ export const registerUser = async (
   plainPassword,
   tipo_usuario = "estudiante",
 ) => {
-  // Verifica si ya existe usuario con ese correo o documento
-  const existing = await pool.query(
-    "SELECT * FROM usuarios WHERE correo = $1 OR documento = $2",
-    [correo, documento],
-  );
-  if (existing.rows.length > 0) {
-    throw new Error("El usuario ya existe con ese correo o documento.");
+  const emailExists = await existsUserByEmail(correo);
+  const documentoExists = await existsUserByDocumento(documento);
+
+  if (emailExists || documentoExists) {
+    throw new ConflictError("El usuario ya existe con ese correo o documento.");
   }
 
-  const hashedPassword = await bcrypt.hash(plainPassword, 10);
+  const hashedPassword = await hashPassword(plainPassword);
 
   const result = await pool.query(
     `INSERT INTO usuarios (nombre, documento, correo, contrasena, tipo_usuario)
@@ -40,5 +62,6 @@ export const registerUser = async (
     [nombre, documento, correo, hashedPassword, tipo_usuario],
   );
 
+  // No devolvemos la contraseña bajo ninguna circunstancia
   return result.rows[0];
 };
