@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
+    "nodemon": "^3.1.10",
     "pg": "^8.16.3"
   }
 }

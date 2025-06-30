@@ -7,27 +7,27 @@ import {
 import { JWT_SECRET } from "../config.js";
 
 export const login = async (req, res) => {
-  const { correo, password } = req.body;
+  const { correo, contrasena } = req.body;
 
   const user = await existsUserByEmail(correo);
   if (!user) {
     return res.status(401).json({ error: "Correo no encontrado" });
   }
 
-  const valid = await verifyPassword(password, user.password);
+  const valid = await verifyPassword(contrasena, user.contrasena);
   if (!valid) {
     return res.status(401).json({ error: "Contraseña incorrecta" });
   }
 
   const token = jwt.sign(
-    { userId: user.id, username: user.username },
+    { userId: user.id, username: user.nombre },
     JWT_SECRET,
     {
       expiresIn: "7d",
     },
   );
 
-  res.json({ token });
+  res.json("Usuario logeado correctamente", { token });
 };
 
 export const register = async (req, res) => {

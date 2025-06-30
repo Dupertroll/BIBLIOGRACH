@@ -8,3 +8,11 @@ Content-Type: application/json
   "correo": "prueba@gmail.com",
   "contrasena": "1234567"
 }
+### user login
+POST http://localhost:3000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "correo": "prueba@gmail.com",
+  "contrasena": "1234567"
+}
