@@ -8,7 +8,7 @@ Content-Type: application/json
   "correo": "prueba@gmail.com",
   "contrasena": "1234567"
 }
-### user login
+### User login
 POST http://localhost:3000/api/v1/auth/login
 Content-Type: application/json
 
@@ -16,3 +16,11 @@ Content-Type: application/json
   "correo": "prueba@gmail.com",
   "contrasena": "1234567"
 }
+
+### Mostrar catalogo
+GET http://localhost:3000/api/v1/catalog/
+Content-Type: application/json
+
+### Filtro libros
+GET http://localhost:3000/api/v1/catalog/year/2000
+Content-Type: application/json

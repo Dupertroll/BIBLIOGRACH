@@ -10,9 +10,6 @@ export const login = async (req, res) => {
   const { correo, contrasena } = req.body;
 
   const user = await existsUserByEmail(correo, 0);
-  if (!user) {
-    return res.status(401).json({ error: "Correo no encontrado" });
-  }
 
   const valid = await verifyPassword(contrasena, user.contrasena);
   if (!valid) {
