@@ -9,7 +9,7 @@ import { JWT_SECRET } from "../config.js";
 export const login = async (req, res) => {
   const { correo, contrasena } = req.body;
 
-  const user = await existsUserByEmail(correo);
+  const user = await existsUserByEmail(correo, 0);
   if (!user) {
     return res.status(401).json({ error: "Correo no encontrado" });
   }
@@ -41,7 +41,6 @@ export const register = async (req, res) => {
     const newUser = await registerUser(nombre, documento, correo, contrasena);
     res.status(201).json({
       message: "Usuario registrado exitosamente",
-      user: newUser,
     });
   } catch (error) {
     console.log("body recibido:", req.body);
