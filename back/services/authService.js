@@ -25,7 +25,7 @@ export const existsUserByEmail = async (correo) => {
   const result = await pool.query(
     "SELECT * FROM usuarios WHERE TRIM(LOWER(correo)) = TRIM(LOWER($1))",
     [correo]);
-  if (userExist.rows.length == 0) {
+  if (result.rows.length == 0) {
     throw new Error("El usuario no existe con ese correo.");
   }
   return result.rows[0];
