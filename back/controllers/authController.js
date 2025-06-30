@@ -23,11 +23,11 @@ export const login = async (req, res) => {
     { userId: user.id, username: user.nombre },
     JWT_SECRET,
     {
-      expiresIn: "7d",
+      expiresIn: "30d",
     },
   );
 
-  res.json("Usuario logeado correctamente", { token });
+  res.json(["Usuario logeado correctamente", { token }]);
 };
 
 export const register = async (req, res) => {
