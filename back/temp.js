@@ -16,7 +16,7 @@ export const createTables = async () => {
       
       CREATE TABLE IF NOT EXISTS ubicaciones (
         id SERIAL PRIMARY KEY,
-        nombre VARCHAR(100) NOT NULL,
+        nombre VARCHAR(100) UNIQUE NOT NULL,
         descripcion TEXT
       );
       
