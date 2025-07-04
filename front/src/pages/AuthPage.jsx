@@ -1,16 +1,37 @@
+import { useState } from "react";
+import { Navigate } from "react-router";
 import image from "../assets/hero.jpg";
+import { loginUser, setAuthToken } from "../services/auth";
 import { useLoginForm } from "../hooks/useLoginForm";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const AuthPage = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const {
-    username,
-    setUsername,
-    password,
-    setPassword,
-    showPassword,
-    setShowPassword,
+    correo,
+    setCorreo,
+    contrasena,
+    setContrasena,
+    showContrasena,
+    setShowContrasena,
   } = useLoginForm();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await loginUser({ correo, contrasena });
+      setAuthToken(response.token);
+      setIsAuthenticated(true);
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error.message);
+    }
+  };
+
+  if (isAuthenticated) {
+    return <Navigate to="/catalog" replace />;
+  }
+
   return (
     <>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -32,29 +53,29 @@ export const AuthPage = () => {
           </div>
 
           <div className="bg-white px-6 py-8">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <input
                   type="text"
                   placeholder="Usuario"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black-400"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={correo}
+                  onChange={(e) => setCorreo(e.target.value)}
                 />
               </div>
               <div className="mb-6 relative">
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={showContrasena ? "text" : "password"}
                   placeholder="Contraseña"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black-400"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={contrasena}
+                  onChange={(e) => setContrasena(e.target.value)}
                 />
                 <span
                   className="absolute right-4 top-3 text-gray-400 cursor-pointer"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setShowContrasena(!showContrasena)}
                 >
-                  {showPassword ? (
+                  {showContrasena ? (
                     <FaEyeSlash size={20} />
                   ) : (
                     <FaEye size={20} />
