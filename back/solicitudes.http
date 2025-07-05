@@ -16,13 +16,16 @@ Content-Type: application/json
   "correo": "prueba@gmail.com",
   "contrasena": "1234567"
 }
+### User verify 
+GET http://localhost:3000/api/v1/auth/verify
+Content-Type: application/json
 
 ### Create Book
 POST http://localhost:3000/api/v1/inventory/create
 Content-Type: application/json
 
 {
-  "nombre": "Alicia en el pais de las maravillas",
+  "nombre": "Alicia en el pais",
   "autor": "Lewis Carrol",
   "cantidad": 20,
   "portada_url": "https://images.cdn1.buscalibre.com",
@@ -32,10 +35,33 @@ Content-Type: application/json
   "sistema_dewey": "109",
   "ubicacion": "Estanteria 2"
 }
+### Delete book
+POST http://localhost:3000/api/v1/inventory/delete
+Content-Type: application/json
+
+{
+  "nombre": "Alicia en el pais"
+}
 ### Show catalog 
 GET http://localhost:3000/api/v1/catalog/
 Content-Type: application/json
 
-### Filtro libros
+### Year filter
 GET http://localhost:3000/api/v1/catalog/year/2016
+Content-Type: application/json
+
+### Name filter
+GET http://localhost:3000/api/v1/catalog/name/ALICIA%20en%20el%20pais
+Content-Type: application/json
+
+### Gender filter
+GET http://localhost:3000/api/v1/catalog/gender/misterio
+Content-Type: application/json
+
+### Author filter
+GET http://localhost:3000/api/v1/catalog/author/Lewis%20Carrol
+Content-Type: application/json
+
+### Editorial filter
+GET http://localhost:3000/api/v1/catalog/editorial/edelvives
 Content-Type: application/json

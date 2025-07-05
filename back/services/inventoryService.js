@@ -20,3 +20,11 @@ export const bookService = async (nombre, autor, cantidad, portada_url, anio, id
   return crearLibro.rows
 }
 
+export const deleteService = async (nombre)=>{
+  const idLibro = await pool.query('SELECT id FROM libros WHERE nombre = $1',[nombre])
+  if (idLibro.rows.length == 0){
+    return idLibro.rows
+  }
+  await pool.query('DELETE FROM libros WHERE (nombre) = $1', [nombre])
+  return idLibro.rows
+}
