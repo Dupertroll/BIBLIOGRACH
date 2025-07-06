@@ -35,6 +35,9 @@ export const existsUserByEmail = async (correo, identifier) => {
 // Buscar usuario por el ID
 export const searchUserById = async (id) => {
   const result = await pool.query("SELECT * FROM usuarios WHERE id = $1", [id]);
+  if (result.rows.length == 0) {
+    throw new Error("El usuario no existe con ese ID.");
+  }
   return result.rows[0];
 };
 // Verifica si existe un usuario con un documento dado
