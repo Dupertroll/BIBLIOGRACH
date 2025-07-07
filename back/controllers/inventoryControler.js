@@ -6,7 +6,7 @@ import {
   bookService,
   deleteService,
 } from "../services/inventoryService.js";
-
+// Filters
 export const searchGeneroId = async (genero) => {
   const genderId = await pool.query(
     "SELECT id FROM generos WHERE TRIM(LOWER(nombre)) = TRIM(LOWER($1))",
@@ -15,7 +15,7 @@ export const searchGeneroId = async (genero) => {
   return genderId.rows[0].id;
 };
 
-export const createGenero = async (genero) => {
+const createGenero = async (genero) => {
   const genderCreate = await genderService(genero);
   if (genderCreate.length == 1) {
     return {
@@ -32,7 +32,8 @@ export const searchEditorialId = async (editorial) => {
   );
   return editorialId.rows[0].id;
 };
-export const createEditorial = async (editorial) => {
+
+const createEditorial = async (editorial) => {
   const editorialCreate = await editorialService(editorial);
   if (editorialCreate.length == 1) {
     return {
@@ -49,6 +50,7 @@ const searchUbicationId = async (ubicacion) => {
   );
   return ubicationId.rows[0].id;
 };
+
 const createUbication = async (ubicacion) => {
   const ubicationCreate = await ubicationService(ubicacion);
   if (ubicationCreate.length == 1) {
@@ -58,7 +60,7 @@ const createUbication = async (ubicacion) => {
     };
   }
 };
-
+// Books
 export const createLibro = async (req, res) => {
   const {
     nombre,
@@ -116,7 +118,6 @@ export const createLibro = async (req, res) => {
 export const deleteLibro = async (req, res) => {
   const { nombre } = req.body;
   const valid = await deleteService(nombre);
-  console.log(valid);
   if (valid.length == 0) {
     return res.json("No se encontró libro para borrar");
   }

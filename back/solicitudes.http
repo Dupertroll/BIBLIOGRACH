@@ -42,6 +42,16 @@ Content-Type: application/json
 {
   "nombre": "Alicia en el pais"
 }
+### Create loan
+POST http://localhost:3000/api/v1/inventory/loan
+Content-Type: application/json
+
+{
+  "id_usuario": 1,
+  "libro":"Alicia en el pais",
+  "curso":"10-01",
+  "fecha_limite":"2025-07-19"
+}
 ### Show catalog 
 GET http://localhost:3000/api/v1/catalog/
 Content-Type: application/json
