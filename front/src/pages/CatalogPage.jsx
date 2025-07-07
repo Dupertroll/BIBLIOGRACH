@@ -1,32 +1,14 @@
-import { useState, useEffect } from "react";
 import Header from "../components/Header/Header";
 import ButtonFilter from "../components/ButtonFilter";
 import BookGrid from "../components/BookGrid";
-import { getCatalog } from "../services/catalog";
+import { useCatalog } from "../hooks/useCatalog";
 
 export const CatalogPage = () => {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        setLoading(true);
-        const data = await getCatalog();
-        // Extraer las URLs de las portadas de los libros
-        const bookImages = data.map(book => book.portada_url);
-        setBooks(bookImages);
-      } catch (err) {
-        setError(err.message);
-        console.error("Error al obtener el catálogo:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBooks();
-  }, []);
+  const { 
+    books, 
+    loading, 
+    error 
+  } = useCatalog();
 
   if (loading) {
     return (
@@ -61,6 +43,7 @@ export const CatalogPage = () => {
       </div>
     );
   }
+
   return (
     <div className="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden">
       <div className="layout-container flex h-full grow flex-col">
@@ -75,7 +58,7 @@ export const CatalogPage = () => {
                 <ButtonFilter key={label} label={label} />
               ))}
             </div>
-            <BookGrid bookImages={books} />
+            <BookGrid books={books} />
           </div>
         </div>
       </div>
