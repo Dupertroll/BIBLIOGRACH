@@ -5,5 +5,5 @@ export const searchCatalog = async (req, res) => {
   if (!valid) {
     return res.status(401).json({ error: "No hay libros en el catálogo" });
   }
-  res.json(["Libros:", valid]);
+  res.json(valid);
 };
