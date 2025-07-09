@@ -4,8 +4,37 @@ import {
   searchEditorialId,
 } from "../controllers/inventoryControler.js";
 export const showCatalog = async () => {
-  const result = await pool.query("SELECT * FROM libros");
-  return result.rows;
+  const query = `
+    SELECT
+      l.id,
+      l.nombre,
+      l.autor,
+      l.cantidad,
+      l.portada_url,
+      l.anio,
+      l.sistema_dewey,
+      l.creado_en,
+
+      -- Editorial
+      e.id            AS id_editorial,
+      e.nombre        AS editorial,
+
+      -- Género
+      g.id            AS id_genero,
+      g.nombre        AS genero,
+
+      -- Ubicación física
+      u.id            AS id_ubicacion,
+      u.nombre        AS ubicacion
+    FROM libros l
+    LEFT JOIN editoriales e ON l.id_editorial = e.id
+    LEFT JOIN generos     g ON l.id_genero     = g.id
+    LEFT JOIN ubicaciones u ON l.id_ubicacion  = u.id
+    ORDER BY l.nombre;          -- opcional
+  `;
+
+  const { rows } = await pool.query(query);
+  return rows;
 };
 
 export const searchByYear = async (req, res) => {
