@@ -40,7 +40,7 @@ POST http://localhost:3000/api/v1/inventory/delete
 Content-Type: application/json
 
 {
-  "nombre": "Alicia en el pais"
+  "id": 3
 }
 ### Create loan
 POST http://localhost:3000/api/v1/inventory/loan

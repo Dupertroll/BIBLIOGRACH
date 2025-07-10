@@ -116,8 +116,8 @@ export const createLibro = async (req, res) => {
 };
 
 export const deleteLibro = async (req, res) => {
-  const { nombre } = req.body;
-  const valid = await deleteService(nombre);
+  const { id } = req.body;
+  const valid = await deleteService(id);
   if (valid.length == 0) {
     return res.json("No se encontró libro para borrar");
   }

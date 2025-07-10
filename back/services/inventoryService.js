@@ -59,13 +59,16 @@ export const searchBookId = async (libro) => {
   return idLibro.rows[0];
 };
 
-export const deleteService = async (nombre) => {
-  const idLibro = await searchBookId(nombre);
-  if (idLibro.rows.length == 0) {
-    return idLibro.rows;
+export const deleteService = async (id) => {
+  const verification = await pool.query(
+    "SELECT * FROM libros WHERE (id) = $1",
+    [id],
+  );
+  if (verification.rows.length == 0) {
+    return verification.rows;
   }
-  await pool.query("DELETE FROM libros WHERE (nombre) = $1", [nombre]);
-  return idLibro.rows;
+  await pool.query("DELETE FROM libros WHERE (id) = $1", [id]);
+  return verification.rows;
 };
 // Loans
 export const loanService = async (
