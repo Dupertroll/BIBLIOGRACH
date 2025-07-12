@@ -6,9 +6,9 @@ import { BookDescriptionPage } from "./pages/BookDescriptionPage";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<AuthPage />} />
-      <Route path="/catalog" element={<CatalogPage />} />
-      <Route path="/catalog/:id" element={<BookDescriptionPage />} />
+      <Route path="/" element={<CatalogPage />} />
+      <Route path="/books/:id" element={<BookDescriptionPage />} />
+      <Route path="/login" element={<AuthPage />} />
     </Routes>
   );
 }

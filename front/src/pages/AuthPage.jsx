@@ -29,7 +29,7 @@ export const AuthPage = () => {
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/catalog" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return (

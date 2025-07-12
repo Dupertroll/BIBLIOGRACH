@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const BookCard = ({ url, nombre, id }) => (
   <div className="flex flex-col gap-3">
     <div className="relative group cursor-pointer">
-      <Link to={`/catalog/${id}`}>
+      <Link to={`/books/${id}`}>
       <div
         className="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg transition-all duration-300"
         style={{ backgroundImage: `url("${url}")` }}

@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 const Header = () => {
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3">
-      <Link to="/catalog">
+      <Link to="/">
         <h2 className="text-[#111418] text-lg font-bold cursor-pointer">BIBLIOGRACH</h2>
       </Link>
       <div className="flex flex-1 justify-end gap-8 items-center">
