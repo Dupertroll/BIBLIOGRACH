@@ -25,10 +25,11 @@ POST http://localhost:3000/api/v1/inventory/create
 Content-Type: application/json
 
 {
-  "nombre": "Alicia en el pais",
+  "nombre": "Alicia en el pais de las maravillas",
+  "descripcion": "Libro god",
   "autor": "Lewis Carrol",
   "cantidad": 20,
-  "portada_url": "https://images.cdn1.buscalibre.com",
+  "portada_url": "https://imgs.search.brave.com/J0xedam80D3qeZzSdMA8fCsTcSTMCWLjHIFrLb11Rds/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY2RuMS5idXNj/YWxpYnJlLmNvbS9m/aXQtaW4vMzYweDM2/MC9kMC8wYS9kMDBh/ZjI5Yjg3NGM3YWI2/YTdiYmQ1NmYyNDZk/OTJmOC5qcGc",
   "anio": 2016,
   "editorial": "Edelvives",
   "genero": "Misterio",
@@ -40,7 +41,7 @@ POST http://localhost:3000/api/v1/inventory/delete
 Content-Type: application/json
 
 {
-  "id": 3
+  "id": 16
 }
 ### Create loan
 POST http://localhost:3000/api/v1/inventory/loan

@@ -33,6 +33,7 @@ export const createTables = async () => {
       CREATE TABLE IF NOT EXISTS libros (
         id SERIAL PRIMARY KEY,
         nombre VARCHAR(200) NOT NULL,
+        descripcion VARCHAR(200) NOT NULL,
         autor VARCHAR(100) NOT NULL,
         cantidad INT NOT NULL CHECK (cantidad >= 0),
         portada_url TEXT,
@@ -54,6 +55,16 @@ export const createTables = async () => {
         fecha_devolucion DATE,
         estado VARCHAR(20) NOT NULL DEFAULT 'pendiente' CHECK (estado IN ('pendiente', 'devuelto', 'rechazado'))
       );
+      
+      CREATE TABLE IF NOT EXISTS solicitudes_prestamo (
+        id SERIAL PRIMARY KEY,
+        id_usuario INT REFERENCES usuarios(id) ON DELETE CASCADE,
+        id_libro INT REFERENCES libros(id) ON DELETE CASCADE,
+        fecha_solicitada DATE NOT NULL,
+        cantidad INT NOT NULL CHECK (cantidad > 0),
+        observaciones TEXT,
+        creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
     `);
 
     console.log("✅ Todas las tablas fueron creadas (o ya existen).");

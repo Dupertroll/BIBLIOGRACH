@@ -26,6 +26,7 @@ export const ubicationService = async (ubicacion) => {
 // Books
 export const bookService = async (
   nombre,
+  descripcion,
   autor,
   cantidad,
   portada_url,
@@ -36,9 +37,10 @@ export const bookService = async (
   id_ubicacion,
 ) => {
   const crearLibro = await pool.query(
-    "INSERT INTO libros (nombre, autor, cantidad, portada_url, anio, id_editorial, id_genero, sistema_dewey, id_ubicacion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
+    "INSERT INTO libros (nombre, descripcion, autor, cantidad, portada_url, anio, id_editorial, id_genero, sistema_dewey, id_ubicacion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
     [
       nombre,
+      descripcion,
       autor,
       cantidad,
       portada_url,
@@ -49,7 +51,7 @@ export const bookService = async (
       id_ubicacion,
     ],
   );
-  return crearLibro.rows;
+  return crearLibro.rows[0];
 };
 
 export const searchBookId = async (libro) => {

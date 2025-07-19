@@ -64,6 +64,7 @@ const createUbication = async (ubicacion) => {
 export const createLibro = async (req, res) => {
   const {
     nombre,
+    descripcion,
     autor,
     cantidad,
     portada_url,
@@ -73,8 +74,10 @@ export const createLibro = async (req, res) => {
     sistema_dewey,
     ubicacion,
   } = req.body;
+  console.log(req.body);
   if (
     !nombre ||
+    !descripcion ||
     !autor ||
     cantidad == null ||
     !editorial ||
@@ -103,6 +106,7 @@ export const createLibro = async (req, res) => {
   // Crear el libro
   const book = await bookService(
     nombre,
+    descripcion,
     autor,
     cantidad,
     portada_url,
