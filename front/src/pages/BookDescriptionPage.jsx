@@ -89,7 +89,7 @@ export const BookDescriptionPage = () => {
               <div className="flex items-stretch justify-between gap-4 rounded-xl">
                 {/* Left – actions */}
                 <div className="flex flex-[2_2_0px] flex-col gap-4">
-                  <p className="text-[#121417] text-base font-bold leading-tight"></p>
+                  <p className="text-[#121417] text-base leading-tight max-w-11/12">{book.description || "No existe descripción para este libro"}</p>
                   <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-[#f1f2f4] text-[#121417] text-sm font-medium leading-normal w-fit">
                     <span className="truncate">Prestar libro</span>
                   </button>
