@@ -1,6 +1,7 @@
 import Header from "../components/Header/Header";
 import { Link, useParams } from "react-router";
 import { useCatalog } from "../hooks/useCatalog";
+import { toast } from "sonner";
 
 /**
  * Single‑file React component generated from the provided static HTML.
@@ -46,6 +47,10 @@ export const BookDescriptionPage = () => {
     );
   }
 
+  const handlePrestar = () => {
+    toast.success(`Se agregó "${book.nombre}" al carrito`);
+  };
+
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
@@ -89,8 +94,14 @@ export const BookDescriptionPage = () => {
               <div className="flex items-stretch justify-between gap-4 rounded-xl">
                 {/* Left – actions */}
                 <div className="flex flex-[2_2_0px] flex-col gap-4">
-                  <p className="text-[#121417] text-base leading-tight max-w-11/12">{book.description || "No existe descripción para este libro"}</p>
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-[#f1f2f4] text-[#121417] text-sm font-medium leading-normal w-fit">
+                  <p className="text-[#121417] text-base leading-tight max-w-11/12">
+                    {book.descripcion ||
+                      "No existe descripción para este libro"}
+                  </p>
+                  <button
+                    onClick={handlePrestar}
+                    className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-[#f1f2f4] text-[#121417] text-sm font-medium leading-normal w-fit"
+                  >
                     <span className="truncate">Prestar libro</span>
                   </button>
                 </div>
@@ -98,7 +109,7 @@ export const BookDescriptionPage = () => {
                 <div
                   className="w-full bg-center bg-no-repeat bg-cover rounded-xl flex-1 aspect-[3/4]"
                   style={{
-                    backgroundImage: book.portada_url 
+                    backgroundImage: book.portada_url
                       ? `url("${book.portada_url}")`
                       : 'url("https://via.placeholder.com/300x400?text=Sin+Portada")',
                   }}
@@ -112,9 +123,18 @@ export const BookDescriptionPage = () => {
             </h3>
             <div className="p-4 grid grid-cols-[1fr] gap-x-6">
               {[
-                { label: "Cantidad disponible", value: book.cantidad?.toString() || "0" },
-                { label: "Año de publicación", value: book.anio?.toString() || "No especificado" },
-                { label: "Editorial", value: book.editorial || "No especificada" },
+                {
+                  label: "Cantidad disponible",
+                  value: book.cantidad?.toString() || "0",
+                },
+                {
+                  label: "Año de publicación",
+                  value: book.anio?.toString() || "No especificado",
+                },
+                {
+                  label: "Editorial",
+                  value: book.editorial || "No especificada",
+                },
                 { label: "Género", value: book.genero || "No especificado" },
                 {
                   label: "Ubicación en estantería",
