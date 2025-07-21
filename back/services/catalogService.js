@@ -7,6 +7,7 @@ export const showCatalog = async () => {
   const query = `
     SELECT
       l.id,
+      l.descripcion,
       l.nombre,
       l.autor,
       l.cantidad,
