@@ -65,7 +65,7 @@ export const BookDescriptionPage = () => {
             <div className="flex flex-wrap gap-2 p-4">
               <Link
                 className="text-[#677583] text-base font-medium leading-normal"
-                to="/"
+                to="/books"
               >
                 Libros
               </Link>
