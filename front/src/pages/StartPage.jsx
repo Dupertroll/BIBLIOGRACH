@@ -14,7 +14,7 @@ export const StartPage = () => {
     "polygon(0% 70.5%,0% 44.5%,15% 44.5%,15% 36%,6.73% 36%,6.73% 0%,35.23% 0%,35.23% 28%,44.73% 28%,44.73% 19%,64.73% 19%,64.73% 4%,70.23% 4%,70.23% 24%,84.23% 24%,84.23% 36%,94.23% 36%,94.23% 61%,85.23% 61%,85.23% 86%,69.73% 86%,69.73% 66%,60.23% 66%,60.23% 96%,44.73% 96%,44.73% 71%,37.23% 71%,37.23% 86%,16.73% 86%,16.73% 70.5%)";
 
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white font-['Bebas+Neue',sans-serif] overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-black text-white overflow-x-hidden">
       {/* ——— NAVBAR ——— */}
       <header className="flex items-center justify-between px-8 md:px-16 py-6">
         <a href="#" className="text-2xl tracking-wider select-none">
