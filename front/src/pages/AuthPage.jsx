@@ -2,61 +2,27 @@
 
 import React from "react";
 import { Link } from "react-router";
+import Header from "../components/Header/Header";
+import imagenTrompeta from "../assets/imagenTrompeta.png";
 
 export const AuthPage = () => {
   return (
-    <div className="font-['Oswald'] h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col">
       {/* Navbar */}
-
-      <nav className="bg-white flex items-center justify-between px-6 md:px-8 py-3 border-b flex-none">
-        <h1 className="text-2xl md:text-3xl font-black tracking-wide">
-          BIBLIOGRACH
-        </h1>
-
-        <ul className="hidden md:flex space-x-6 md:space-x-8 text-lg md:text-xl font-semibold">
-          {[
-            { href: "/", label: "Inicio" },
-            { href: "/about", label: "Nosotros" },
-            { href: "/memories", label: "Memorias" },
-          ].map(({ href, label }) => (
-            <li key={href}>
-              <a href={href} className="hover:underline">
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <Link
-          className="border-2 border-black px-4 py-2 text-xs md:text-sm tracking-wider rounded-[40px] hover:bg-black hover:text-white transition-colors"
-          to="/books"
-        >
-          CATÁLOGO
-        </Link>
-      </nav>
-
+      <Header />
       {/* Main grid */}
       <main className="flex-grow grid grid-cols-1 lg:grid-cols-2 bg-gray-300">
         {/* --- Bloque informativo --- */}
         <section className="p-6 lg:p-12 overflow-y-auto">
-          <h2 className="text-3xl lg:text-4xl font-black mb-4 leading-tight">
-            EL JAZZ Y LA LITERATURA
-          </h2>
-
-          <p className="text-base lg:text-lg leading-relaxed">
-            Es cierto que la música, a diferencia de otras artes, necesita ser
-            oída; pero hay libros que son capaces de recrear y de expresar, con
-            la palabra, un fenómeno musical como es la música del jazz. Ejemplo
-            de esto es la obra{" "}
-            <span className="font-semibold">El perseguidor</span>, de Julio
-            Cortázar.
-          </p>
-
-          <p className="mt-4 text-xs lg:text-sm">© apoloybaco.com</p>
+          <img
+            src={imagenTrompeta}
+            alt="Imagen de trompeta"
+            className="absolute z-0 top-[10%] left-[00%] w-[45vw] h-[90vh]"
+          />
         </section>
 
         {/* --- Formulario Login --- */}
-        <section className="p-6 lg:p-1 flex flex-col items-center overflow-y-auto">
+        <section className="p-6 lg:p-1 flex flex-col items-center overflow-y-auto left-[50%] absolute w-[45%]">
           {/* Ícono de usuario */}
           <svg
             width="131"
@@ -83,7 +49,7 @@ export const AuthPage = () => {
             </g>
           </svg>
 
-          <h3 className="text-xl lg:text-2xl text-center font-semibold mb-6">
+          <h3 className="text-xl lg:text-2xl text-center font-light mb-6 font-ibm">
             ¡BIENVENIDO DE NUEVO! INGRESE LOS
             <br className="hidden lg:block" /> SIGUIENTES DATOS DE TU CUENTA
           </h3>
@@ -92,21 +58,21 @@ export const AuthPage = () => {
             {/* Email */}
             <label
               htmlFor="email"
-              className="block mb-2 text-base lg:text-lg font-bold tracking-wide"
+              className="block mb-2 text-base lg:text-lg font-bold tracking-wide font-ibm"
             >
-              EMAIL@
+              EMAIL @
             </label>
             <input
               id="email"
               type="email"
               placeholder="CORREO ELECTRÓNICO..."
-              className="w-[115%] mb-5 px-4 py-3 border border-black rounded focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-[115%] mb-5 px-4 py-3 border border-black rounded focus:outline-none focus:ring-2 focus:ring-black font-ibm"
             />
 
             {/* Password */}
             <label
               htmlFor="password"
-              className="inline-flex items-center text-base lg:text-lg font-bold tracking-wide"
+              className="inline-flex items-center text-base lg:text-lg font-bold tracking-wide font-ibm"
             >
               CONTRASEÑA
               {/* Candado SVG */}
@@ -128,11 +94,11 @@ export const AuthPage = () => {
               id="password"
               type="password"
               placeholder="********"
-              className="w-[115%] mb-5 px-4 py-3 border border-black rounded focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-[115%] mb-5 px-4 py-2 border border-black rounded focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             {/* Info extra */}
-            <p className="mb-6 text-center text-sm leading-snug">
+            <p className="font-ibm font-light mb-6 text-center text-m leading-snug">
               ¿Aún no tienes una cuenta en{" "}
               <span className="font-bold">BIBLIOGRACH</span>? <br />
               ¡No pierdas tiempo y regístrate aquí!
@@ -142,7 +108,7 @@ export const AuthPage = () => {
             <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
               <button
                 type="button"
-                className="flex items-center justify-center px-6 py-2 border-2 border-black rounded-[10px] text-[130%] font-bold tracking-wider hover:bg-black hover:text-white transition-colors"
+                className="font-ibm cursor-pointer flex items-center justify-center px-6 py-2 border-2 border-black rounded-[10px] text-[120%] font-bold tracking-wider hover:bg-black hover:text-white transition-colors"
               >
                 REGISTRARSE
                 {/* Spinner SVG */}
@@ -180,7 +146,7 @@ export const AuthPage = () => {
 
               <button
                 type="submit"
-                className="flex items-center justify-center px-6 py-3 border-2 border-black rounded-[10px] text-[130%] font-black tracking-wide hover:bg-black hover:text-white transition-colors whitespace-nowrap"
+                className="font-ibm flex items-center justify-center px-6 py-3 border-2 border-black rounded-[10px] text-[130%] font-bold tracking-wide hover:bg-black hover:text-white transition-colors whitespace-nowrap"
               >
                 {/* Flecha SVG */}
                 <svg

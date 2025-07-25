@@ -33,7 +33,7 @@ export const createTables = async () => {
       CREATE TABLE IF NOT EXISTS libros (
         id SERIAL PRIMARY KEY,
         nombre VARCHAR(200) NOT NULL,
-        descripcion VARCHAR(200) NOT NULL,
+        descripcion VARCHAR(1000) NOT NULL,
         autor VARCHAR(100) NOT NULL,
         cantidad INT NOT NULL CHECK (cantidad >= 0),
         portada_url TEXT,

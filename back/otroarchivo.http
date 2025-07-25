@@ -1,0 +1,358 @@
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "Rebelión en la granja",
+  "descripcion": "Rebelión en la granja es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno..........................................................................................................................................",
+  "autor": "George Orwell",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/TWEuMAC-qqQFSiZ1HgFc2y0BmE4ZOy0bg1-bqPFG56A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY2RuMi5idXNj/YWxpYnJlLmNvbS9m/aXQtaW4vMzYweDM2/MC8wMy8wNS8wMzA1/NmZjMWYwZjgzMGI4/MWI3ZjkyYTc0YjVj/ZTI3ZS5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "El proceso",
+  "descripcion": "El proceso es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno.....................................................................................................................................................",
+  "autor": "Franz Kafka",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/TIlq69V99-F1Np33zIAXNgrKeuhj_AYUY-xh6MBzs_I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bm9sbGVnaXUuY29t/L2VzL2ltYWdlbmVz/Lzk3ODg0MTkvOTc4/ODQxOTU1ODgxLndl/YnA",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "1984",
+  "descripcion": "1984 es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno...........................................................................................................................................................",
+  "autor": "George Orwell",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/erqo9NDCfCuZp-dawFLSpTLN2vkdev6Aa3rPNOZo6Ec/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9paDEu/cmVkYnViYmxlLm5l/dC9pbWFnZS4xMTQw/MjgzMjY5Ljk2NzUv/ZmxhdCw3NTB4LDA3/NSxmLXBhZCw3NTB4/MTAwMCxmOGY4Zjgu/anBn",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "La casa de los espíritus",
+  "descripcion": "La casa de los espíritus es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno.......................................................................................................................................",
+  "autor": "Isabel Allende",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/cO-C7JuaN0yN7VOEsJ2cKC2f6BkzOyWxJlS0HZFyAAc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zaWx2/ZXJsaWJyb3MuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDI0/LzA2Lzk3ODg0NjYz/NjIwOC5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "La metamorfosis",
+  "descripcion": "La metamorfosis es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno................................................................................................................................................",
+  "autor": "Franz Kafka",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/sAXyGn0Gu14gnoEyirsmUCWIdLt8bSadwkJyBltA8ZY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY2RuMS5idXNj/YWxpYnJlLmNvbS9m/aXQtaW4vMzYweDM2/MC8yNi84Ni8yNjg2/MThkMTA2ZWQzOWQx/ZGI0YzdlMzQzODc2/NWMwZi5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "El extranjero",
+  "descripcion": "El extranjero es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno..................................................................................................................................................",
+  "autor": "Albert Camus",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/8pITUqkkbYPiQ6x0p-FaO3aMxhCdD74zM94-8XySg5s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9waWN0/dXJlcy5hYmVib29r/cy5jb20vaW52ZW50/b3J5L21kL21kMzE4/NDAyMDczNDYuanBn",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "El segundo sexo",
+  "descripcion": "El segundo sexo es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno................................................................................................................................................",
+  "autor": "Simone de Beauvoir",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/MubjFTwGMN8PrU7_o2545pOwQXQkbxj4VT3ynwMeaqU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY2RuMi5idXNj/YWxpYnJlLmNvbS9m/aXQtaW4vMzYweDM2/MC81Ni82Ny81NjY3/ODBhZjZjYzRmYzE5/NDUyZDFhMTdkOWM1/NWI5Zi5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "Hamlet",
+  "descripcion": "Hamlet es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno.........................................................................................................................................................",
+  "autor": "William Shakespeare",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/x1v46YtulM_GCLNqDl9zV4SmIrRqwVCdhYZR-qWv_58/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9paDEu/cmVkYnViYmxlLm5l/dC9pbWFnZS40MTM4/OTg2MTk4LjY3Njkv/ZmxhdCw3NTB4LDA3/NSxmLXBhZCw3NTB4/MTAwMCxmOGY4Zjgu/anBn",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "Cien años de soledad",
+  "descripcion": "Cien años de soledad es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno...........................................................................................................................................",
+  "autor": "Gabriel García Márquez",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/WIxupBOWcKb8s8PLAYd9YDIAZwDSKCqd6h7JTtQjKQk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/Y29udGV4dG8tZGUt/aWx1c3RyYWNpJUMz/JUIzbi1kZS1wb3J0/YWRhLWRlLWNpZW4t/YSVDMyVCMW9zLWRl/LXNvbGVkYWQtdjAt/OTRvMGZsY3drY3Bl/MS5qcGc_d2lkdGg9/MzM0JmZvcm1hdD1w/anBnJmF1dG89d2Vi/cCZzPTYzNGQ2MDBj/MTY0MjY2MzBjNGM0/NGJiNTM3MzNjMDgy/ZTBkNjlhZDU",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "La vorágine",
+  "descripcion": "La vorágine es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno....................................................................................................................................................",
+  "autor": "José Eustasio Rivera",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/uSVP1RrxZh48eLCKQxsRQMprpOCCF24ZrlZ4SFLRr10/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY2RuMS5idXNj/YWxpYnJlLmNvbS9m/aXQtaW4vMzYweDM2/MC9jNi8wZC9jNjBk/MGI1YmJkZGY5Yjkw/OTZjOTEzMzRkOWY5/OWNjZC5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "Crónica de una muerte anunciada",
+  "descripcion": "Crónica de una muerte anunciada es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno................................................................................................................................",
+  "autor": "Gabriel García Márquez",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/M-Cb47nfV1m5F3h4S8K2QgILSjuBv0MWZwifN7IlQ90/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9saXZl/LnN0YXRpY2ZsaWNr/ci5jb20vNDU4NC8z/ODUyMzg0ODg4Ml9h/Y2I3NDYwOTlmLmpw/Zw",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "¡Que viva la música!",
+  "descripcion": "¡Que viva la música! es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno...........................................................................................................................................",
+  "autor": "Andrés Caicedo",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/DWBWhGt8zI4s2uwM8qBHLxp-X2E8w1_fe74NRt9LD9w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YW5kZXNsaWJyZXJp/YS5jb20vMjI4Mzgv/cXVlLXZpdmEtbGEt/bXVzaWNhLWRlLWFu/ZHJlcy1jYWljZWRv/LWxpYnJvLWltcHJl/c28tOTc4OTU4NTQz/MzE0NC5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "La Odisea",
+  "descripcion": "La Odisea es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno......................................................................................................................................................",
+  "autor": "Homero",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/jG0XaqAoAn71qHhyx9vAUwZe7Th_jnQ3nF48bkC7c6M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY2RuMi5idXNj/YWxpYnJlLmNvbS9m/aXQtaW4vMzYweDM2/MC9iNS9kYy9iNWRj/ZTBiNDgyZmI1MGU5/MWQ5YWY5NzhiODUw/ODQ0MC5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "La Ilíada",
+  "descripcion": "La Ilíada es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno......................................................................................................................................................",
+  "autor": "Homero",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/vxpfHkumyolJkljgvnb922rbXcPJEo46SUs4ZON5N54/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFnS1J3SkJGaUwu/anBn",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "Alicia en el país de las maravillas",
+  "descripcion": "Alicia en el país de las maravillas es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno............................................................................................................................",
+  "autor": "Lewis Carroll",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/esdFm9nWL8lHCfkDks2AScxHBC0YTfmenIQdQV7la9w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzgxM29aakxmV3JM/LmpwZw",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "El club de la lucha",
+  "descripcion": "El club de la lucha es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno............................................................................................................................................",
+  "autor": "Chuck Palahniuk",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/pZZ04mbeaof6X-8eRzuoFDs6_HhO7JYmcL3U1g_7avs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9xdWVs/aWJyb2xlby5jb20v/aW1hZ2VzL2xpYnJv/cy9saWJyb18xMjY4/NTg3NDI1LmpwZw",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "Pedro Páramo",
+  "descripcion": "Pedro Páramo es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno...................................................................................................................................................",
+  "autor": "Juan Rulfo",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/pY3j1Ukxe6cJxRkMhlGBAeH_qkJOf4YA2yR314TsPRU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY2RuMS5idXNj/YWxpYnJlLmNvbS9m/aXQtaW4vMzYweDM2/MC8xYS9kNy8xYWQ3/NjliMzA0ZWI3NTlh/NjE4ODAzNDA5MjFi/YzgyZC5qcGc",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "El túnel",
+  "descripcion": "El túnel es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno.......................................................................................................................................................",
+  "autor": "Ernesto Sabato",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/HQusvP7PjlfBcoRjny7GFpR6rRUDgKc0fTf9rx866QE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wZGxp/YnJvc2NobC5jZG5z/dGF0aWNzMi5jb20v/dXN1YXJpcy9saWJy/b3MvdGh1bWJzL2Nm/ZGZiN2JhLTI5MDgt/NDcxNy1iNDVjLTY1/ODdjZDM1ZThiYi9k/XzI5NV81MTAvcG9y/dGFkYV9lbC10dW5l/bF9lcm5lc3RvLXNh/YmF0b18yMDE4MTAw/NTE1MzYud2VicA",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "El viejo y el mar",
+  "descripcion": "El viejo y el mar es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno..............................................................................................................................................",
+  "autor": "Ernest Hemingway",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/SbuC74429fT3aR0MI8Dex8FmzPsSUf9OSdMZ-HCFrP0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c29wYWRlbGlicm9z/LmNvbS9wb3J0YWRh/cy9iNjYwOTIzZjA4/ZTEyNWU3M2U5ZC5q/cGVn",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
+
+### create Book
+POST http://localhost:3000/api/v1/inventory/create
+Content-Type: application/json
+
+{
+  "nombre": "Mrs. Dalloway",
+  "descripcion": "Mrs. Dalloway es una obra literaria que explora temas universales y profundos a través de personajes inolvidables, situaciones dramáticas o simbólicas, y un estilo narrativo único. Esta historia invita a reflexionar sobre la condición humana y su entorno..................................................................................................................................................",
+  "autor": "Virginia Woolf",
+  "cantidad": 20,
+  "portada_url": "https://imgs.search.brave.com/4s9OMNerObZOCp4WRkmJoLgfXn2Mo076ZR8ogPGGZCQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9vbmVt/b3JlbGlicmFyeS5j/b20vY29tcG9uZW50/cy9jb21fZGpjbGFz/c2lmaWVkcy9pbWFn/ZXMvaXRlbS8yMTcy/X21yc19kYWxsb3dh/eV8tX3Zpcmdpbmlh/X3dvb2xmX3RoYi53/ZWJw",
+  "anio": 2000,
+  "editorial": "Desconocida",
+  "genero": "Literatura",
+  "sistema_dewey": "800",
+  "ubicacion": "Estanteria 2"
+}
+
