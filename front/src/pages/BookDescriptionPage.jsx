@@ -1,18 +1,14 @@
-// BookDescriptionPage.tsx – Diseño ajustado fielmente al mock‑up
-// Usa TailwindCSS cargado globalmente (incl. forms + container‑queries)
-// Colores de marca en hexadecimales para evitar dependencia del theme.
-
 import Header from "../components/Header/Header";
 import { Link, useParams } from "react-router";
 import { useCatalog } from "../hooks/useCatalog";
 import { toast } from "sonner";
+import { verify } from "../services/auth.js";
 
 export const BookDescriptionPage = () => {
   const { id } = useParams();
   const { books } = useCatalog();
   const book = books.find((b) => b.id === Number(id));
 
-  /* --------------------- Página de error (libro no encontrado) -------------------- */
   if (!book) {
     return (
       <div className="relative flex min-h-screen flex-col bg-white overflow-x-hidden">
@@ -37,9 +33,14 @@ export const BookDescriptionPage = () => {
     );
   }
 
-  /* ------------------------------- Utilidades ------------------------------ */
-  const handlePrestar = () =>
-    toast.success(`Se agregó "${book.nombre}" al carrito`);
+  const handlePrestar = () => {
+    if (!verify) {
+      toast.error(`Debes tener una cuenta para poder hacer un prestamo`);
+    }
+    if (verify) {
+      toast.success(`Se agregó "${book.nombre}" al carrito`);
+    }
+  };
   const generos = book.genero
     ? book.genero
         .split(/[,|]/)
@@ -47,31 +48,22 @@ export const BookDescriptionPage = () => {
         .filter(Boolean)
     : [];
 
-  /* ------------------------------ Vista normal ----------------------------- */
   return (
     <div className="relative flex flex-col bg-white overflow-x-hidden">
       <Header />
-      {/* ---------- Contenedor principal ---------- */}
       <main className="flex flex-1 justify-center py-0 px-0 overflow-y-hidden">
-        {/* Marco naranja y fondo gris claro (según mock‑up) */}
-        <div className="w-full border-[5px] border-[#ff7f00] h-[20%] bg-white p-4 md:p-11">
-          {/* Tarjeta blanca con borde interno */}
-          <div className="flex flex-col md:flex-row gap-10 h-[99%] border border-black/80 bg-[#D9D9D9] p-3 md:p-8">
-            {/* ------------------ Columna izquierda: portada + botón ----------------- */}
+        <div className="w-full border-[5px] border-[#ff7f00] bg-white p-4 md:p-11 max-h-[89.7vh]">
+          <div className="relative flex flex-col md:flex-row gap-10 border max-h-[76vh] border-black/80 bg-[#D9D9D9] p-1 md:p-8 md:pr-0">
             <div className="flex flex-col items-center">
-              {/* Portada con marco blanco trasero desplazado */}
               <div className="relative w-full max-w-full">
-                {/* Marco trasero */}
                 <div />
-                {/* Imagen */}
                 <img
                   src={book.portada_url}
                   alt="nada"
-                  className="relative top-[-15%] aspect-[3/4] w-[20vw] h-[56vh] border-15 border-white bg-cover bg-center outline-[1.5px]"
+                  className="relative top-[-15%] aspect-[3/4] w-[25vw] h-[66vh] border-15 border-white bg-cover bg-center outline-[1.5px]"
                 />
               </div>
 
-              {/* Botón "Solicitar préstamo" */}
               <button
                 onClick={handlePrestar}
                 className="relative top-[-10%] w-full rounded-md bg-black py-3 text-m font-medium uppercase tracking-wider text-white transition-colors hover:bg-[#222]"
@@ -80,77 +72,57 @@ export const BookDescriptionPage = () => {
               </button>
             </div>
 
-            {/* -------------------- Columna derecha: metadatos -------------------- */}
-            <div className="flex flex-col gap-6">
-              {/* Autor y año */}
-              <div className="relative flex flex-wrap gap-6">
-                {/* Autor */}
+            <div className="relative flex flex-row gap-2">
+              <div className="relative flex flex-col gap-3">
                 <div className="flex flex-col gap-2">
                   <span className="w-fit rounded-[10px] border-[1.5px] px-4 py-3 text-m font-extralight uppercase leading-none tracking-wider text-[#121417]">
                     Autor
                   </span>
-                  <span className="w-fit rounded-[10px] border-[1.5px] border-black uppercase px-4 py-3 text-4xl font-bold leading-none text-white">
+                  <span className="w-fit rounded-[10px] border-[1.5px] border-black uppercase px-4 py-3 text-4xl font-bold leading-none text-[#082FF2]">
                     {book.autor}
                   </span>
                 </div>
 
-                {/* Año */}
-                <div className="absolute top-[120%] left-[0%] flex flex-row gap-1">
-                  <span className="w-fit rounded-[10px] border-[1.5px] px-4 py-3 text-m font-extralight uppercase leading-none tracking-wider text-[#121417] h-[40%]">
+                <div className="top-[120%] flex flex-row gap-2">
+                  <span className="w-fit rounded-[10px] border-[1.5px] px-3 py-2 text-m font-extralight uppercase leading-none tracking-wider text-[#121417]">
                     Año de publicación
                   </span>
-                  <span className="w-fit rounded-[10px] border-[1.5px] px-3 py-3 text-xl font-bold leading-none text-white border-black h-[40%]">
+                  <span className="w-fit rounded-[10px] border-[1.5px] px-3 py-2 text-xl font-bold leading-none border-black text-[#082FF2]">
                     {book.anio || "—"}
                   </span>
                 </div>
+                <div className="flex flex-col gap-3">
+                  <p className="max-w-[35vw] text-2xl leading-relaxed font-light text-[#121417]">
+                    {book.descripcion ||
+                      "No existe descripción para este libro."}
+                  </p>
+                </div>
               </div>
 
-              {/* Título */}
-              <div className="absolute right-[8%] flex flex-col gap-2">
-                <span className="relative left-[70%] w-fit rounded-[10px] border-[1.5px] px-4 py-2 text-sm font-light uppercase tracking-wider text-[#121417]">
-                  Título de la obra
-                </span>
-                <h1
-                  className="relative
-                  uppercase
-                  text-right
-                      text-[clamp(2rem,4vw+1rem,4rem)]
-                       md:text-[3.5rem]
-                       font-semibold
-                       leading-tight
-                      text-[#0050ff]
-                      break-words                     
-                      hyphens-auto                    
-                      [text-wrap:balance]             
-                      max-w-[min(90vw,15ch)]          
-                      line-clamp-3                    
-                      overflow-hidden
-                      text-[#082FF2]
-                      right-[-8%]    
-                  "
-                >
-                  {book.nombre}
-                </h1>
-              </div>
-              {/* Descripción */}
-              <p className="relative top-[20%] max-w-[60ch] text-xl leading-relaxed font-light text-[#121417]">
-                {book.descripcion || "No existe descripción para este libro."}
-              </p>
+              <div className="relative flex flex-col gap-5">
+                <div className="relative left-[20%] flex flex-col gap-3 w-[20vw]">
+                  <span className="relative left-[50%] block w-fit whitespace-nowrap overflow-hidden text-ellipsis rounded-[10px] border-[1.5px] px-[9px] py-2 text-sm font-light uppercase tracking-wider text-[#121417]">
+                    Título de la obra
+                  </span>
+                  <h1 className="block w-full uppercase text-5xl font-semibold leading-tight text-[#082FF2] min-h-[50vh] text-right">
+                    {book.nombre}
+                  </h1>
+                </div>
 
-              {/* Géneros */}
-              <div className="absolute right-[16%] bottom-[11%]">
-                {generos.length > 0 && (
-                  <div className="absolute w-fit relative left-[115%] bottom-[-35%] flex flex-wrap border-[1.5px] rounded-[8px] px-1 py-0.9 w-[5.5vw] gap-3">
-                    {generos.map((g, idx) => (
-                      <span
-                        key={idx}
-                        className="rounded-md bg-[#dadbde] px-3 py-1 text-m font-medium text-[#121417]"
-                      >
-                        {g}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="relative">
+                  {generos.length > 0 && (
+                    <div className="relative left-[85%] w-fit flex flex-wrap border-[1.5px] rounded-[8px] px-1 py-0.9 w-[5.5vw] gap-3">
+                      {generos.map((g, idx) => (
+                        <span
+                          key={idx}
+                          className="rounded-md bg-[#dadbde] px-3 py-1 text-m font-medium text-[#121417]"
+                        >
+                          {g}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

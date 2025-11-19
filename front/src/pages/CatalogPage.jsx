@@ -8,7 +8,6 @@ import { useCatalog } from "../hooks/useCatalog";
 export const CatalogPage = () => {
   const { books, loading, error } = useCatalog();
 
-  /* ------------------------- ESTADOS UX ------------------------- */
   if (loading) {
     return (
       <div className="relative flex min-h-screen flex-col bg-white">
@@ -31,12 +30,10 @@ export const CatalogPage = () => {
     );
   }
 
-  /* ----------------------------- UI ----------------------------- */
   return (
     <div className="relative flex min-h-screen flex-col bg-white">
       <Header />
 
-      {/* ───── HERO (idéntico al mock-up) ───── */}
       <section className="border-x border-[#e5e5e5] border-t-4 border-b-4 border-t-[#ff7a00] border-b-[#ff7a00]">
         <div className="mx-0.5 grid max-w-[1040px] gap-6 px-6 py-6 md:grid-cols-2">
           {/* Imágenes */}
@@ -53,7 +50,6 @@ export const CatalogPage = () => {
             />
           </div>
 
-          {/* Texto */}
           <div className="flex flex-col justify-center pr-3">
             <h1 className="relative top-[0%] left-[59%] text-4xl md:text-7xl leading-tight text-[#111418]">
               No se puede <br /> encontrar la paz
@@ -106,7 +102,6 @@ export const CatalogPage = () => {
         </div>
       </section>
 
-      {/* ───── Filtros + Título ───── */}
       <section className="mx-auto max-w-[1040px] px-6 pt-10">
         <h2 className="pb-4 text-2xl font-medium text-[#111418] font-bebas">
           Explora nuestra colección
@@ -118,7 +113,6 @@ export const CatalogPage = () => {
         </div>
       </section>
 
-      {/* ───── Grid de libros ───── */}
       <div className="px-40 flex flex-1 justify-center py-5">
         <div className="layout-content-container flex flex-col max-w-[100vw] flex-1">
           <BookGrid books={books} />

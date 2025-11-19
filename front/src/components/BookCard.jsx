@@ -9,7 +9,7 @@ const BookCard = ({ url, nombre, id }) => (
           style={{ backgroundImage: `url("${url}")` }}
         />
         {/* Overlay oscuro con nombre del libro - solo visible en hover */}
-        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center">
           <h3 className="font-ibm text-white text-xl font-medium text-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-tight">
             {nombre}
           </h3>

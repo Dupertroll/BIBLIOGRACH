@@ -6,7 +6,6 @@ import {
   bookService,
   deleteService,
 } from "../services/inventoryService.js";
-// Filters
 export const searchGeneroId = async (genero) => {
   const genderId = await pool.query(
     "SELECT id FROM generos WHERE TRIM(LOWER(nombre)) = TRIM(LOWER($1))",
@@ -60,7 +59,6 @@ const createUbication = async (ubicacion) => {
     };
   }
 };
-// Books
 export const createLibro = async (req, res) => {
   const {
     nombre,

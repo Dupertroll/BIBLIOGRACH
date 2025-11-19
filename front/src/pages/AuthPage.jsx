@@ -1,18 +1,39 @@
-// AuthPage.jsx (todo en un solo archivo, con SVGs completos)
-
-import React from "react";
-import { Link } from "react-router";
 import Header from "../components/Header/Header";
+import { toast } from "sonner";
+import { useState } from "react";
 import imagenTrompeta from "../assets/imagenTrompeta.png";
+import { useNavigate, Link } from "react-router-dom";
+import { loginUser } from "../services/auth.js";
 
 export const AuthPage = () => {
+  const [correo, setCorreo] = useState("");
+  const [contrasena, setContrasena] = useState("");
+  const nav = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await loginUser(correo, contrasena);
+      const verify = localStorage.getItem("token");
+      if (!verify) {
+        localStorage.setItem("token", data.token);
+      }
+      if (data.tipo_usuario === "administrador") {
+        nav("/admin");
+      } else if (data.tipo_usuario === "estudiante") {
+        nav("/books");
+      }
+      console.log("ya tienes una cuenta");
+    } catch (err) {
+      toast.error(err.error);
+      console.log(err.error);
+    }
+  };
+
   return (
     <div className="relative min-h-screen flex flex-col">
-      {/* Navbar */}
       <Header />
-      {/* Main grid */}
       <main className="flex-grow grid grid-cols-1 lg:grid-cols-2 bg-gray-300">
-        {/* --- Bloque informativo --- */}
         <section className="p-6 lg:p-12 overflow-y-auto">
           <img
             src={imagenTrompeta}
@@ -21,9 +42,7 @@ export const AuthPage = () => {
           />
         </section>
 
-        {/* --- Formulario Login --- */}
         <section className="p-6 lg:p-1 flex flex-col items-center overflow-y-auto left-[50%] absolute w-[45%]">
-          {/* Ícono de usuario */}
           <svg
             width="131"
             height="131"
@@ -54,8 +73,7 @@ export const AuthPage = () => {
             <br className="hidden lg:block" /> SIGUIENTES DATOS DE TU CUENTA
           </h3>
 
-          <form className="w-full max-w-md">
-            {/* Email */}
+          <form className="w-full max-w-md" onSubmit={handleSubmit}>
             <label
               htmlFor="email"
               className="block mb-2 text-base lg:text-lg font-bold tracking-wide font-ibm"
@@ -65,17 +83,17 @@ export const AuthPage = () => {
             <input
               id="email"
               type="email"
+              onChange={(e) => setCorreo(e.target.value)}
+              required
               placeholder="CORREO ELECTRÓNICO..."
               className="w-[115%] mb-5 px-4 py-3 border border-black rounded focus:outline-none focus:ring-2 focus:ring-black font-ibm"
             />
 
-            {/* Password */}
             <label
               htmlFor="password"
               className="inline-flex items-center text-base lg:text-lg font-bold tracking-wide font-ibm"
             >
               CONTRASEÑA
-              {/* Candado SVG */}
               <svg
                 width="29"
                 height="29"
@@ -94,61 +112,61 @@ export const AuthPage = () => {
               id="password"
               type="password"
               placeholder="********"
+              onChange={(e) => setContrasena(e.target.value)}
+              required
               className="w-[115%] mb-5 px-4 py-2 border border-black rounded focus:outline-none focus:ring-2 focus:ring-black"
             />
 
-            {/* Info extra */}
             <p className="font-ibm font-light mb-6 text-center text-m leading-snug">
               ¿Aún no tienes una cuenta en{" "}
               <span className="font-bold">BIBLIOGRACH</span>? <br />
               ¡No pierdas tiempo y regístrate aquí!
             </p>
 
-            {/* Botones */}
             <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-              <button
-                type="button"
-                className="font-ibm cursor-pointer flex items-center justify-center px-6 py-2 border-2 border-black rounded-[10px] text-[120%] font-bold tracking-wider hover:bg-black hover:text-white transition-colors"
-              >
-                REGISTRARSE
-                {/* Spinner SVG */}
-                <span className="ml-2">
-                  <svg
-                    width="44"
-                    height="44"
-                    viewBox="0 0 44 44"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      x="0.5"
-                      y="0.5"
-                      width="43"
-                      height="43"
-                      rx="12.5"
-                      fill="#D9D9D9"
-                    />
-                    <rect
-                      x="0.5"
-                      y="0.5"
-                      width="43"
-                      height="43"
-                      rx="12.5"
-                      stroke="black"
-                    />
-                    <path
-                      d="M7.33325 22V18.3333H12.8333V22H7.33325ZM13.5666 32.175L10.9999 29.5167L14.8499 25.6667L17.5083 28.2333L13.5666 32.175ZM14.8499 14.6667L10.9999 10.8167L13.5666 8.15833L17.5083 12.1L14.8499 14.6667ZM36.6666 36.6667L27.9583 27.9583L25.6666 34.8333L20.1666 16.5L38.4999 22L31.7166 24.3833L40.3333 33L36.6666 36.6667ZM21.9999 11V5.5H25.6666V11H21.9999ZM32.8166 14.6667L30.1583 12.1L34.0999 8.15833L36.6666 10.725L32.8166 14.6667Z"
-                      fill="#1C1B1F"
-                    />
-                  </svg>
-                </span>
-              </button>
+              <Link to="/register">
+                <button
+                  type="button"
+                  className="font-ibm cursor-pointer flex items-center justify-center px-6 py-2 border-2 border-black rounded-[10px] text-[120%] font-bold tracking-wider hover:bg-black hover:text-white transition-colors"
+                >
+                  REGISTRARSE
+                  <span className="ml-2">
+                    <svg
+                      width="44"
+                      height="44"
+                      viewBox="0 0 44 44"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="43"
+                        height="43"
+                        rx="12.5"
+                        fill="#D9D9D9"
+                      />
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="43"
+                        height="43"
+                        rx="12.5"
+                        stroke="black"
+                      />
+                      <path
+                        d="M7.33325 22V18.3333H12.8333V22H7.33325ZM13.5666 32.175L10.9999 29.5167L14.8499 25.6667L17.5083 28.2333L13.5666 32.175ZM14.8499 14.6667L10.9999 10.8167L13.5666 8.15833L17.5083 12.1L14.8499 14.6667ZM36.6666 36.6667L27.9583 27.9583L25.6666 34.8333L20.1666 16.5L38.4999 22L31.7166 24.3833L40.3333 33L36.6666 36.6667ZM21.9999 11V5.5H25.6666V11H21.9999ZM32.8166 14.6667L30.1583 12.1L34.0999 8.15833L36.6666 10.725L32.8166 14.6667Z"
+                        fill="#1C1B1F"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </Link>
 
               <button
                 type="submit"
                 className="font-ibm flex items-center justify-center px-6 py-3 border-2 border-black rounded-[10px] text-[130%] font-bold tracking-wide hover:bg-black hover:text-white transition-colors whitespace-nowrap"
               >
-                {/* Flecha SVG */}
                 <svg
                   width="39"
                   height="39"

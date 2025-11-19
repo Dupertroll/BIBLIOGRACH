@@ -3,10 +3,10 @@ POST http://localhost:3000/api/v1/auth/register
 Content-Type: application/json
 
 {
-  "nombre": "prueba",
-  "documento": "12345",
-  "correo": "prueba@gmail.com",
-  "contrasena": "1234567"
+  "nombre": "Luis Ángel Quintero Morales",
+  "documento": "127809812",
+  "correo": "laqm0103@gmail.com",
+  "contrasena": "12345678"
 }
 ### User login
 POST http://localhost:3000/api/v1/auth/login
@@ -62,15 +62,15 @@ GET http://localhost:3000/api/v1/catalog/year/2016
 Content-Type: application/json
 
 ### Name filter
-GET http://localhost:3000/api/v1/catalog/name/ALICIA%20en%20el%20pais
+GET http://localhost:3000/api/v1/catalog/name/ALICIA%20en%20el%20país%20de%20las%20maravillas
 Content-Type: application/json
 
 ### Gender filter
-GET http://localhost:3000/api/v1/catalog/gender/misterio
+GET http://localhost:3000/api/v1/catalog/gender/literatura
 Content-Type: application/json
 
 ### Author filter
-GET http://localhost:3000/api/v1/catalog/author/Lewis%20Carrol
+GET http://localhost:3000/api/v1/catalog/author/Lewis%20Carroll
 Content-Type: application/json
 
 ### Editorial filter

@@ -7,11 +7,8 @@ import imagenCamus from "../assets/imagenCamus.png";
 export const ReflexionPage = () => {
   return (
     <div className="relative bg-white text-[#1B1717] overflow-hidden font-oswald">
-      {/* ───────────────────────── NavBar */}
       <Header />
-      {/* ───────────────────────── Main Content */}
       <section className="relative max-w-screen-xl mx-auto grid lg:grid-cols-12 gap-y-12 gap-x-10 px-6 py-16">
-        {/* Copy column */}
         <div className="relative lg:col-span-7 flex flex-col gap-4.5 top-[1%]">
           <p className="uppercase font-semibold"></p>
 
@@ -81,9 +78,7 @@ export const ReflexionPage = () => {
           </p>
         </div>
 
-        {/* Media column */}
         <div className="lg:col-span-5 flex flex-row gap-4">
-          {/* Top Image */}
           <figure className="absolute w-[20vw] h-[45vh] left-[60%] top-[3%]">
             <figcaption className="mt-2 text-xs text-left">
               © Ernesto Sábato
@@ -95,7 +90,6 @@ export const ReflexionPage = () => {
             />
           </figure>
 
-          {/* Bottom grid */}
           <figure className="absolute w-[13vw] h-[10vh] left-[83%] top-[7%]">
             <img
               src={imagenPizarnik}
@@ -131,8 +125,6 @@ export const ReflexionPage = () => {
             </figcaption>
           </figure>
         </div>
-
-        {/* Decorative star – positioned via absolute so it can overflow */}
 
         <svg
           width="542"

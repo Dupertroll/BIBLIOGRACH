@@ -9,7 +9,10 @@ import { JWT_SECRET } from "../config.js";
 export const login = async (req, res) => {
   const { correo, contrasena } = req.body;
 
-  const user = await existsUserByEmail(correo, 0);
+  const user = await existsUserByEmail(correo);
+  if (!user) {
+    return res.status(401).json({ error: "Correo incorrecto" });
+  }
 
   const valid = await verifyPassword(contrasena, user.contrasena);
   if (!valid) {
@@ -24,7 +27,7 @@ export const login = async (req, res) => {
     },
   );
 
-  res.json(["Usuario logeado correctamente", { token }]);
+  res.json({ token, tipo_usuario: user.tipo_usuario });
 };
 
 export const register = async (req, res) => {
@@ -40,12 +43,14 @@ export const register = async (req, res) => {
       message: "Usuario registrado exitosamente",
     });
   } catch (error) {
-    console.log("body recibido:", req.body);
     res.status(400).json({ error: error.message });
   }
 };
 
 export const verifyToken = (req, res) => {
   // Si el middleware authenticateToken no ha devuelto error, significa que el token es válido
-  res.status(200).json({ message: "Token válido" });
+  const { userId, username } = req.user;
+  res
+    .status(200)
+    .json({ message: "Token válido", id: userId, username: username });
 };

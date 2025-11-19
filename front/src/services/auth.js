@@ -14,20 +14,18 @@ export const removeAuthToken = () => {
   localStorage.removeItem(TOKEN_KEY);
 };
 
-export const loginUser = async ({ correo, contrasena }) => {
-  const response = await fetch(`${API_URL}/api/v1/auth/login`, {
+export const loginUser = async (correo, contrasena) => {
+  const res = await fetch(`${API_URL}/api/v1/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ correo, contrasena }),
   });
 
-  const data = await response.json();
+  if (!res.ok) throw await res.json();
 
-  if (!response.ok) {
-    throw new Error(data.message || "Error al iniciar sesión");
-  }
+  const data = await res.json();
+  // data = { token, tipo_usuario }
 
-  // Guardamos el token en localStorage
-  setAuthToken(data.token);
   return data;
 };
+export const verify = localStorage.getItem("token");

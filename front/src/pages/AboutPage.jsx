@@ -8,7 +8,6 @@ export const AboutPage = () => {
     <div className="relative overflow-x-hidden overflow-y-auto">
       <Header />
       <section className="relative w-full max-w-4xl mx-auto px-4 py-12 h-[89.7vh]">
-        {/* Encabezado principal */}
         <h2 className="absolute top-[4%] left-[10%] text-5xl font-bold leading-tight tracking-tight">
           <span className="text-[#082FF2] font-normal">¿QUÉ ES</span>{" "}
           BIBLIOGRACH?
@@ -79,7 +78,6 @@ export const AboutPage = () => {
             fill="black"
           />
         </svg>
-        {/* Sub‑encabezados */}
         <div className="absolute top-[13.5%] left-[40%] font-normal flex space-x-4 mt-2 text-lg uppercase tracking-wider">
           <Link
             to="/about/reflexion"
@@ -108,7 +106,6 @@ export const AboutPage = () => {
           </svg>
         </div>
 
-        {/* Espacio reservado para la imagen/collage */}
         <div className="w-full h-72 my-8 rounded-lg flex items-center justify-center relative">
           <img
             src={imagenJodida}
@@ -141,7 +138,6 @@ export const AboutPage = () => {
           </span>
         </div>
 
-        {/* Cuerpo del texto */}
         <p className="absolute top-[65%] left-[25%] text-xl leading-relaxed font-light">
           {" "}
           Desde sus inicios,{" "}

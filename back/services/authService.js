@@ -21,14 +21,11 @@ export const verifyPassword = async (inputPassword, hashedPassword) => {
 };
 
 // Verifica si existe un usuario con un correo dado
-export const existsUserByEmail = async (correo, identifier) => {
+export const existsUserByEmail = async (correo) => {
   const result = await pool.query(
     "SELECT * FROM usuarios WHERE TRIM(LOWER(correo)) = TRIM(LOWER($1))",
     [correo],
   );
-  if ((result.rows.length == 0) & (identifier != null)) {
-    throw new Error("El usuario no existe con ese correo.");
-  }
   return result.rows[0];
 };
 
